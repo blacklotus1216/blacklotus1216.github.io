@@ -117,11 +117,11 @@
                 let i = a
                 $.ajax({
                     type: 'get',
-                    url: 'https://coupon.netmarble.com/api/coupon/reward',
+                    url: 'https://cors-anywhere.herokuapp.com/https://coupon.netmarble.com/api/coupon/reward',
                     data: {
-						'gameCode': 'sk2gb',
-					    'couponCode': tabledata[i]['code'],
-						'langCd': 'ZH_TW',
+			'gameCode': 'sk2gb',
+			'couponCode': tabledata[i]['code'],
+			'langCd': 'ZH_TW',
                         'pid': uid
                     },
                     success: function (data) {
