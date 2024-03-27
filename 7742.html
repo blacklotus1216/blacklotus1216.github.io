@@ -17,13 +17,11 @@
 <body>
     <p><span>user id : </span><input type="text" id="uid">
     <button onclick="req();">run</button>
-    <a target="_blank" rel="noopener noreferrer" href="https://forum.netmarble.com/sk2_en/view/12/10252">how to find UID</a></p>
+    <a target="_blank" rel="noopener noreferrer" href="https://forum.netmarble.com/sk2_en/view/12/10252"></a></p>
     <hr>
     <p><span>Put your UID in and Click RUN</span></p>
     <p><span>Coupon Code Editable.</span></p>
     <p><span>Saving Member Information Cookies.</span></p>
-    <p><a href="https://yelus12.github.io/sena/?fbclid=IwAR0CLhWITXjUaR2IHwpxaSGiXVPHjwG_l0pCPjj6sZQiWJjQat9mdDl9uUg" rel="noopener noreferrer" target="_blank">Credit KR ver</a>
-    <a href="https://www.facebook.com/groups/sevenknights2thailandcommunity/permalink/487379399857257" rel="noopener noreferrer" target="_blank">code: Thai community</a></p>
     <div id="example-table"><br></div>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -118,12 +116,12 @@
             for (var a in tabledata) {
                 let i = a
                 $.ajax({
-                     type: 'get',
+                    type: 'get',
                     url: 'https://coupon.netmarble.com/api/coupon/reward',
                     data: {
 						'gameCode': 'sk2gb',
-					    'couponCode': tabledata[i]['code']
-						'langCd': 'ZH_TW'
+					    'couponCode': tabledata[i]['code'],
+						'langCd': 'ZH_TW',
                         'pid': uid
                     },
                     success: function (data) {
