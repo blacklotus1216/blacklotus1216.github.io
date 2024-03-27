@@ -113,8 +113,8 @@
             for (var a in tabledata) {
                 let i = a
                 $.ajax({
-                    type: 'POST',
-                    url: 'https://coupon.netmarble.com/api/coupon',
+                    type: 'get',
+                    url: 'https://coupon.netmarble.com/api/coupon/reward',
                     data: {
                         'pid': uid,
                         'channelCode': 100,
