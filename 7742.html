@@ -115,9 +115,9 @@
                 $.ajax({
                     type: 'POST',
 		    header:{
-			    "Content-Type": "application/json",
+			    ContentType: 'application/json',
 			    Authorization:'Bearer $(uid)',
-			    Referer: "https://coupon.netmarble.com/sk2gb"
+			    Referer: 'https://coupon.netmarble.com/sk2gb'
 		    },
                     url: 'https://corsproxy.io/?https://coupon.netmarble.com/api/coupon',
                     data: {
