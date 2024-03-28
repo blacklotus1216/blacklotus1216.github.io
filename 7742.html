@@ -56,7 +56,7 @@
         if (uid) { $('#uid').val(uid) }
         var tabledata = [
             { id: 1, code: "", result: 0, response: '', description: 'request' },
-            { id: 2, code: " ", result: 0, response: '', description: 'request' },
+            /*{ id: 2, code: "", result: 0, response: '', description: 'request' },
             { id: 3, code: "", result: 0, response: '', description: 'request' },
             { id: 4, code: "", result: 0, response: '', description: 'request' },
             { id: 5, code: "", result: 0, response: '', description: 'request' },
@@ -80,7 +80,7 @@
             { id: 23, code: "", result: 0, response: '', description: 'request' },
             { id: 24, code: "", result: 0, response: '', description: 'request' },
             { id: 25, code: "", result: 0, response: '', description: 'request' },
-            /*{ id: 26, code: "", result: 0, response: '', description: 'request' },
+            { id: 26, code: "", result: 0, response: '', description: 'request' },
             { id: 27, code: "", result: 0, response: '', description: 'request' },
             { id: 28, code: "", result: 0, response: '', description: 'request' },
             { id: 29, code: "", result: 0, response: '', description: 'request' },
@@ -126,6 +126,7 @@
 				 contentType : 'application/json',
 		   		 type: 'post',
                    		 url: 'https://coupon.netmarble.com/api/coupon',
+				 headers: { 'Cookie': '_ga_VTN3M4859L=GS1.1.1651670097.1.0.1651670097.0; _ga_GVE6X9WL91=GS1.1.1658761040.1.0.1658761044.0; _ga_QD6XPNHQ6V=GS1.1.1686151559.23.0.1686151559.0.0.0; _ga_6JCQYRL430=GS1.1.1689511018.1.0.1689511018.0.0.0; _ga_LQ59E03LGJ=GS1.1.1690201188.6.0.1690201195.0.0.0; _ga_GVG0Q2E9P2=GS1.2.1694281466.1.1.1694281512.0.0.0; _ga=GA1.1.369852324.1637850171; _ga_HZ3N7KW97V=GS1.1.1698235785.1.0.1698236058.0.0.0; _ga_CRB86XD2K0=GS1.1.1700667123.32.0.1700667127.0.0.0; _ga_0T1HM45XFQ=GS1.1.1700667123.33.0.1700667127.0.0.0; _ga=GA1.3.369852324.1637850171; NMGameCode=sk2gb; NMGameToken=0AB0012FE2F27221F97EF0A4C02FE36FBDD2082878DC6CE61F31B1730D40C542ECB22C756DAA82D0A803A6C0784A617C85EE15306B3649767211E9B42DB3C79EB43CA16048B8AB0A4D144FA1240BA6DDD95F9DBADC4A95D7D1ED0379D40D85F5103CED5EFC96D5052368A6ED6E75A87658C1259BDCBD8FEC41015EFDE2597CDB56770BC5A00671D66D3AF0039FE81A9899415857B82E1AF72FCA463FC878C7ED1F7EF45D185BE338185C00F708E4BBE825041712203F09D886B65705D23534CE3ED557A2D044B90A97256CB5709BE3595B4B000C56; NMJoinedCountryCode=TW; NMLanguage=zh-TW; NMDeviceLanguage=zh-TW; NMPlatform=PC; NMPlayerID=477B5DC3329C4728943EB88A586AAC08; _ga_3MC57P48VK=GS1.3.1711593904.12.0.1711593905.0.0.0' , 'Origin': 'https://coupon.netmarble.com/' ,'Referer': 'https://coupon.netmarble.com/sk2gb' },
                    		 data: {
                     			'gameCode': 'sk2gb',
                   			'couponCode': tabledata[i]['code'],
