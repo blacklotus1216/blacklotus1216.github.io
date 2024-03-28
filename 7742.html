@@ -123,6 +123,7 @@
                     },
                     success: function (data) {
 		    	$.ajax({
+				 contenttype : 'application/json',
 		   		 type: 'post',
                    		 url: 'https://coupon.netmarble.com/api/coupon',
                    		 data: {
@@ -130,8 +131,8 @@
                   			'couponCode': tabledata[i]['code'],
                   			'langCd': 'ZH_TW',
                                		'pid': uid
-                    }
-                    })
+                    		}
+                    	})
 		    }
                 })
             }
