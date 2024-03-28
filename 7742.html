@@ -122,32 +122,17 @@
                     			'pid': uid
                     },
                     success: function (data) {
-		    $.ajax({
-		    type: 'post',
-                    url: 'https://coupon.netmarble.com/api/coupon',
-                    data: {
-                    		'gameCode': 'sk2gb',
-                  		'couponCode': tabledata[i]['code'],
-                  		'langCd': 'ZH_TW',
-                                'pid': uid
+		    	$.ajax({
+		   		 type: 'post',
+                   		 url: 'https://coupon.netmarble.com/api/coupon',
+                   		 data: {
+                    			'gameCode': 'sk2gb',
+                  			'couponCode': tabledata[i]['code'],
+                  			'langCd': 'ZH_TW',
+                               		'pid': uid
                     }
-                        if (data['resultCode'] === 'SUCCESS') {
-                            tabledata[i]['result'] = 1
-                            tabledata[i]['description'] = data['rewardItem']['rewardTitle']
-                        } else if (data['resultCode'] === 'NOT_EXISTS_PID') {
-                            tabledata[i]['description'] = 'UID Error'
-                        } else if (data['resultCode'] === 'COUPON_ALREADY_USE') {
-                            tabledata[i]['description'] = 'USED COUPON'
-                        } else if (data['resultCode'] === 'COUPON_WRONG') {
-                            tabledata[i]['description'] = 'WRONG COUPON'
-        			} else if (data['resultCode'] === 'COUPON_RESTRICT') {
-                            tabledata[i]['description'] = 'COUPON ERROR TRY AGAIN IN 1HR.'
-                        } else {
-                            tabledata[i]['description'] = 'UNKNOWN'
-                        }
-                        tabledata[i]['response'] = data['resultCode']
-                        table.updateData(tabledata)
-                    )}
+                    })
+		    }
                 })
             }
         }
