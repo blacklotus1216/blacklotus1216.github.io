@@ -113,15 +113,16 @@
             for (var a in tabledata) {
                 let i = a
                 $.ajax({
-                    type: 'get',
-                    url: 'https://coupon.netmarble.com/api/coupon/reward',
+                    type: 'post',
+		    header: {'Content-Type': 'application/json',Authorization: 'Bearer $('#uid')',Referer: "https://coupon.netmarble.com/sk2gb"},
+                    url: 'https://coupon.netmarble.com/api/coupon',
                     data: {
 					'gameCode': 'sk2gb',
 					'couponCode': tabledata[i]['code'],
 					'langCd': 'ZH_TW',
                     			'pid': uid
-                    },
-                    success: function (data) {
+                    }
+                   /* success: function (data) {
 		    	$.ajax({
 				 contentType : 'application/json',
 		   		 type: 'post',
@@ -132,7 +133,7 @@
                   			'couponCode': tabledata[i]['code'],
                   			'langCd': 'ZH_TW',
                                		'pid': uid
-                    		}
+                    		}*/
                     	})
 		    }
                 })
