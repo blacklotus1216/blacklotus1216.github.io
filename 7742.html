@@ -56,7 +56,7 @@
         if (uid) { $('#uid').val(uid) }
         var tabledata = [
             { id: 1, code: "", result: 0, response: '', description: 'request' },
-            /*{ id: 2, code: "", result: 0, response: '', description: 'request' },
+            /*{ id: 2, code: " ", result: 0, response: '', description: 'request' },
             { id: 3, code: "", result: 0, response: '', description: 'request' },
             { id: 4, code: "", result: 0, response: '', description: 'request' },
             { id: 5, code: "", result: 0, response: '', description: 'request' },
@@ -112,31 +112,38 @@
             setCookie('uid', uid)
             for (var a in tabledata) {
                 let i = a
-                /*$.ajax({
-                    type: 'get',
-                    url: 'https://coupon.netmarble.com/api/coupon',
+                $.ajax({
+                    type: 'POST',
+                    url: 'https://corsproxy.io/?https://coupon.netmarble.com/api/coupon',
                     data: {
-					'gameCode': 'sk2gb',
-					'couponCode': tabledata[i]['code'],
-					'langCd': 'ZH_TW',
-                    			'pid': uid
-                    },*/
-                   /*success: function (data) {*/
-		    	$.ajax({
-		   		 type: 'post',
-                   		 url: 'https://corsproxy.io/?https://coupon.netmarble.com/api/coupon',
-				 data: {
-                    			'gameCode': 'sk2gb',
-                  			'couponCode': tabledata[i]['code'],
-                  			'langCd': 'ZH_TW',
-                               		'pid': uid
-                    		}
-                    	/*})*/
+							'gameCode': 'sk2gb',
+							'couponCode': tabledata[i]['code'],
+							'langCd': 'ZH_TW',
+                            'pid': uid
+                    },
+                    success: function (data) {
+                        if (data['resultCode'] === 'SUCCESS') {
+                            tabledata[i]['result'] = 1
+                            tabledata[i]['description'] = data['rewardItem']['rewardTitle']
+                        } else if (data['resultCode'] === 'NOT_EXISTS_PID') {
+                            tabledata[i]['description'] = 'UID Error'
+                        } else if (data['resultCode'] === 'COUPON_ALREADY_USE') {
+                            tabledata[i]['description'] = 'USED COUPON'
+                        } else if (data['resultCode'] === 'COUPON_WRONG') {
+                            tabledata[i]['description'] = 'WRONG COUPON'
+        			} else if (data['resultCode'] === 'COUPON_RESTRICT') {
+                            tabledata[i]['description'] = 'COUPON ERROR TRY AGAIN IN 1HR.'
+                        } else {
+                            tabledata[i]['description'] = 'UNKNOWN'
+                        }
+                        tabledata[i]['response'] = data['resultCode']
+                        table.updateData(tabledata)
+                    }
                 })
             }
         }
         
-      /*  google.charts.load('current', { packages: ['corechart'] }).then(function () {
+        /*google.charts.load('current', { packages: ['corechart'] }).then(function () {
             var query = new google.visualization.Query('https://spreadsheets.google.com/tq?tqx=out:html&tq=SELECT+B,D&key=13SWidGIeegH0otFPVD6KkaXcUbJ6MpKoQlX9QxPCscc&gid=315323999');
             query.send(function (response) {
                 var dataTable = response.getDataTable();
