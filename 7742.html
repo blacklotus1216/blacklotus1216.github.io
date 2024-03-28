@@ -114,11 +114,16 @@
                 let i = a
                 $.ajax({
                     type: 'POST',
+		    header:{
+			    "Content-Type": "application/json",
+			    Authorization:'Bearer $(uid)',
+			    Referer: "https://coupon.netmarble.com/sk2gb"
+		    },
                     url: 'https://corsproxy.io/?https://coupon.netmarble.com/api/coupon',
                     data: {
-							'gameCode': 'sk2gb',
-							'couponCode': tabledata[i]['code'],
-							'langCd': 'ZH_TW',
+			    'gameCode': 'sk2gb',
+			    'couponCode': tabledata[i]['code'],
+			    'langCd': 'ZH_TW',
                             'pid': uid
                     },
                     success: function (data) {
