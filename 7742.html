@@ -124,9 +124,17 @@
 					'gameCode': 'sk2gb',
 					'couponCode': tabledata[i]['code'],
 					'langCd': 'ZH_TW',
-                    'pid': uid
+                    			'pid': uid
                     },
-                    success: function (data) {
+                    success: function (data) {{
+		    type: 'post',
+                    url: 'https://coupon.netmarble.com/api/coupon',
+                    data: {
+                    		'gameCode': 'sk2gb',
+                  		'couponCode': tabledata[i]['code'],
+                  		'langCd': 'ZH_TW',
+                                'pid': uid
+                    },
                         if (data['resultCode'] === 'SUCCESS') {
                             tabledata[i]['result'] = 1
                             tabledata[i]['description'] = data['rewardItem']['rewardTitle']
