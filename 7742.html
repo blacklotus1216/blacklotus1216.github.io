@@ -143,7 +143,7 @@
             }
         }
         
-        /*google.charts.load('current', { packages: ['corechart'] }).then(function () {
+        google.charts.load('current', { packages: ['corechart'] }).then(function () {
             var query = new google.visualization.Query('https://spreadsheets.google.com/tq?tqx=out:html&tq=SELECT+B,D&key=13SWidGIeegH0otFPVD6KkaXcUbJ6MpKoQlX9QxPCscc&gid=315323999');
             query.send(function (response) {
                 var dataTable = response.getDataTable();
@@ -160,7 +160,7 @@
                 }
         
             });
-        });*/
+        });
         
         var table = new Tabulator("#example-table", {
             data: tabledata,           //load row data from array
