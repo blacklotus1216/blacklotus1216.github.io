@@ -124,7 +124,7 @@
                 let i = a
                 $.ajax({
                     type: 'POST',
-                    url: 'https://coupon.netmarble.com/api/coupon',
+                    url: 'https://corsproxy.io/?https://coupon.netmarble.com/api/coupon',
                     data: {
 			    'gameCode': 'sk2gb',
 			    'couponCode': tabledata[i]['code'],
